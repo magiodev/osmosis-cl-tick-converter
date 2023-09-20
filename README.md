@@ -1,20 +1,39 @@
 ## Usage
 
-In the root of the project run:
+The tool leverages the Cobra CLI library to provide multiple functionalities. You can either convert a price to a tick
+index or convert a tick index to a price using the underlying Osmosis Concentrated Liquidity math module.
+
+## Convert Price to Tick Index
+
+To convert a price to a tick index, run the following command at the root of the project:
+
 ```bash
-go run main.go <price>
+go run main.go price-to-tick <price>
 ```
 
-In `main.go` file you can change the method you want to use by renaming it in `main`.
+Example:
 
-There is an implementation using `CalculatePriceToTickDec` and one using `CalculateSqrtPriceToTick`.
+```bash
+go run main.go price-to-tick 1.23
+```
 
-## Debug
+## Convert Tick Index to Price
 
-With GoLand:
+To convert a tick index to a price, run the following command at the root of the project:
 
-1. <img src="./screenshots/1.png" alt="1" />
-2. <img src="./screenshots/2.png" alt="2" />
-3. <img src="./screenshots/3.png" alt="3" />
-4. <img src="./screenshots/4.png" alt="4" />
-5. <img src="./screenshots/5.png" alt="5" />
+```bash
+go run main.go tick-to-price <tick>
+```
+
+For negative tick values, use:
+
+```bash
+go run main.go tick-to-price -- <-tick>
+````
+
+Example:
+
+```bash
+go run main.go tick-to-price 456
+go run main.go tick-to-price -- -456
+```
